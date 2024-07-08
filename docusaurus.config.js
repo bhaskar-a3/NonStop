@@ -1,34 +1,43 @@
 // @ts-check
-// `@type` JSDoc annotations allow editor autocompletion and type checking
-// (when paired with `@ts-check`).
-// There are various equivalent ways to declare your Docusaurus config.
-// See: https://docusaurus.io/docs/api/docusaurus-config
+// Note: type annotations allow type checking and IDEs autocompletion
 
-import {themes as prismThemes} from 'prism-react-renderer';
+//NonStop is veteran platform - the NonStop upgrades world's IT services by handling the burden of clustering and load balancing.
 
+ //const lightCodeTheme = require('prism-react-renderer/themes/github');
+ //const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+ const lightCodeTheme = require('prism-react-renderer').themes.github;
+ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+
+//bhaskar1
+// module.exports = {
+//  themeConfig: {
+//    prism: {
+//      theme: require('prism-react-renderer/themes/github'),
+//      darkTheme: require('prism-react-renderer/themes/dracula'),
+//    },
+//  },
+//};
+
+//bhaskar 1
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
+  title: 'HPE NonStop Developer Portal',
+  tagline: "NonStop upgrades the world's IT services by removing the need for clustering and load balancing.",
   url: 'https://github.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/NonStop/',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/element.svg',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'bhaskar-a3', // Usually your GitHub org/user name.
+  projectName: 'NonStop', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Even if you don't use internalization, you can use this field to set useful
+  // metadata like html lang. For example, if your site is Chinese, you may want
+  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -40,7 +49,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -51,10 +60,10 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://developer.hpe.com/platform/hpe-nonstop/home/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
@@ -63,25 +72,35 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'HPE NonStop Developer Portal',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'HPE Logo',
+          src: 'img/element.svg',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          // {
+          //   type: 'doc',
+          //   docId: '/products/overview',
+          //   position: 'left',
+          //   label: 'Products',
+          // },
+          {to: '/docs/category/the-platform', label: 'Platform', position: 'left'},
+          {to: '/docs/category/our-database', label: 'Database', position: 'left'},
+          
+          // software and security?
+          {to: '/docs/category/our-software-portfolio', label: 'Software', position: 'left'},
+          
+          {to: '/docs/category/the-middleware', label: 'Middleware', position: 'left'},
+          {to: '/docs/category/hpe-nonstops-greenlake', label: 'GreenLake', position: 'left'},
+          //{to: '/docs/category/introduction---to-nonstop-os', label: 'Quick Start', position: 'left'},
+          //{to: 'https://developer.hpe.com/platform/hpe-nonstop/home/', label: 'HPE Dev', position: 'left'},
+          
+          
+          //{to: 'https://developer.hpe.com/products/nonstop', label: 'Dev Landing Page', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            label: 'GitHub - unedited link',
             position: 'right',
           },
         ],
@@ -93,13 +112,13 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Quick Start',
+                to: '/docs/category/introduction---to-nonstop-os',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Community - unedited links',
             items: [
               {
                 label: 'Stack Overflow',
@@ -119,23 +138,23 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'HPE Dev',
+                to: 'https://developer.hpe.com/platform/hpe-nonstop/home/',
               },
               {
-                label: 'GitHub',
+                label: 'GitHub - unedited link',
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} HPE NonStop Developer Portal. Built with Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
       },
     }),
 };
 
-export default config;
+module.exports = config;
